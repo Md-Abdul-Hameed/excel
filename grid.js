@@ -58,7 +58,8 @@ for(let i = 0; i < rows; i++){
        fontsize:"8",
        fontfamily:"Arial",
        value:"",
-       formula:""
+       formula:"",
+       children:[]
    }    
    row.push(object);
     }
