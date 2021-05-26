@@ -1,5 +1,5 @@
-let save = document.querySelector(".save");
-let open = document.querySelector(".open");
+let save = document.querySelector(".Save");
+let open = document.querySelector(".Open");
 // functionality -> download excel representation
 save.addEventListener("click", function () {
     console.log("hameed");
@@ -20,8 +20,7 @@ save.addEventListener("click", function () {
 })
 // downloaded file -> open read 
 // input type file -> change event file name
-open.addEventListener("change", function () {
-    console.log("hameed");
+open.addEventListener("click", function () {
     // files array -> file accept-> multiple files get 
     let filesArray = open.files;
 

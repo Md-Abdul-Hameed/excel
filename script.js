@@ -27,3 +27,8 @@ sheetlist.addEventListener("click",function(e){
         e.target.classList.add("active");
     }
 })
+
+// const fontFamily = document.querySelectorAll(".font-family>*");
+// for(let i = 0; i < fontFamily.length; i++){
+//     fontFamily[i].style.fontFamily = fontFamily[i].values;
+// }

@@ -9,25 +9,36 @@ body{
 .menu-container{
     height:3rem ;
     
-    background-color: rgb(58, 175, 58)
+    background-color: rgb(238, 238, 238);
 }
 
 .menu-container >*{
     width: 10rem;
-    padding-bottom: 0.3rem;
-    padding-left: 0.3rem;
+    height: 50%;
+    text-align: center;
+    /* padding-bottom: 0.3rem;
+    padding-left: 0.3rem; */
     
 }
 
 .title{
     display: flex;
+    width: 100%;
 }
-.title>*{
-    width: 7rem;
-    margin-right: 0.8rem;
+.title *{
+    height: 100%;
+    width: 5rem;
+    font-family:'Courier New', Courier, monospace;
+}
+.New{
+    width: 5rem;
 }
 .Home{
-    /* background-color: #fff; */
+    background-color: #fff;
+    height: 100%;
+}
+.font-family{
+    margin-left: 1rem;
 }
 select{
     border: none;
@@ -41,51 +52,96 @@ select:hover{
     cursor: pointer;
 
 }
+option[value]{
+    font-family: value;
+}
+
 .alignment{
     display: flex;
+    width: 100%;
+    background-color: white;
 }
 
 .alignment>*{
+    width: 7rem;
     margin-right: 1rem;
+    border-right: 1px solid;
 }
 .biu-container{
     /* border: 1px solid; */
     /* border-radius: 5%; */
     display: flex;
-    justify-content: space-evenly;
-    padding-top: 0.1rem;
+    /* justify-content: space-evenly; */
     background-color: white;
+    /* text-align: center; */
+    
     /* color :rgb(106, 114, 122); */
     /* min-height: 1.8rem; */
 }
 .biu-container>*{
     margin-right: 1rem;
+    height: inherit;
     font-size: x-small;
-    width: 16px;
+    width: 20px;
+
 }
 .biu-container>*:hover{
     background:lightgrey;
 }
 .fas.fa-bold{
     font-size: 18px;
+    padding-top: 0.2rem;
 }
 .fas.fa-italic{
     font-size: 18px;
+    padding-top: 0.2rem;
 }
 .fas.fa-underline{
     font-size: 18px;
+    padding-top: 0.2rem;
 }
+.color{
+    width: 8.5rem;
+    gap: 2rem;
+}
+
+.color>*{
+    /* margin-right: 2rem; */
+    
+}
+
+.text-alignment{
+    display: flex;
+    background-color: white;
+    width: 7rem;
+}
+.text-alignment>*{
+    padding-top: 0.2rem;
+    width: 1.5rem;
+    text-align: center;
+    margin-right: 1rem;
+}
+.text-alignment>*:hover{
+    background-color: lightgray;
+}
+.color{
+    display: flex;
+    
+}
+
 
 .formula-container{
     height:2rem;
     display: flex;
-    justify-content: space-around;
+    
     align-items: center;
     background-color: rgb(238, 238, 238)
 }
 
 .formula-container >*{
     height: 70%;
+    margin-left: 1rem;
+    margin-right: 3rem;
 }
 
 .address-input{
@@ -141,12 +197,13 @@ select:hover{
 }
 
 .cbox{
-    width: 4rem;
-    height: 1.2rem;
+    min-width: 4rem;
+    min-height: 1.2rem;
     text-align: center;
     border: 1px solid lightgray;
-    /* overflow: auto; */
+    
 }
+
 
 .cbox:hover{
     cursor: cell;
@@ -165,18 +222,20 @@ select:hover{
 
 .add-sheet_btn-container{
     width: 3rem;
-   border: 1px solid;
-   height: 100%;
-   padding-top: 0.2rem;
-   padding-left: 0.6rem;
+   text-align: center;
+   color: rgb(32, 226, 32);
+   padding-top: 0.4rem;
+   
+   background-color:rgb(240, 238, 238);
 }
 
+
 .fas{
-    font-size: x-large  ;
+    font-size: large  ;
 }
 
 .sheet-list{
-    border: 1px solid;
+    /* border: 1px solid; */
     width: calc(100vw - (3rem));
     display: flex;
     height: 100%;
@@ -197,10 +256,10 @@ select:hover{
 .sheet{
     height: 100%;
     min-width: 5rem;
-    border: 1px solid;
+    border-right: 0.5px solid;
     border-radius: 8%;
-    /* padding-left: 0.3rem;
-    padding-top: 0.2rem; */
+     padding-left: 0.3rem; 
+    padding-top: 0.2rem; 
 }
 
 .active{
@@ -208,7 +267,7 @@ select:hover{
 }
 
 .active-btn{
-    background: grey;
+    color: rgb(238, 151, 151);
 }
 
 .nos-container{

@@ -5,11 +5,11 @@ const addressbar = document.querySelector(".address-input");
 const bold = document.querySelector(".fa-bold");
 const italic = document.querySelector(".fas.fa-italic");
 const underline = document.querySelector(".fas.fa-underline");
-const align = document.querySelector(".align");
+const align = document.querySelector(".text-alignment");
 const fontsize = document.querySelector(".font-size");
 const fontfamily = document.querySelector(".font-family");
-const textcolor = document.querySelector("input[name='Text Color']");
-const backgroundcolor = document.querySelector("input[name='Background']");
+const textcolor = document.querySelector(".text-color");
+const backgroundcolor = document.querySelector(".bg-color");
 
 //*************      *** Making Grid ************************* */
 let rows = 100;
@@ -55,7 +55,7 @@ for(let i = 0; i < rows; i++){
        tcolor:"black",
        backgroundcolor:"white",
        underline:"none",
-       fontsize:"8",
+       fontsize:"16",
        fontfamily:"Arial",
        value:"",
        formula:"",
@@ -89,7 +89,16 @@ grid.addEventListener("click",function(e){
         }else{
             underline.classList.remove("active-btn");
         }
-        align.value = cellObject.align;
+        const alignitems = document.querySelectorAll(".text-alignment>*");
+        for(let i = 0; i < alignitems.length; i++){
+            alignitems[i].classList.remove("active-btn");   
+            if(alignitems[i].className === cellObject.align){
+                alignitems[i].classList.add("active-btn");
+            }
+        }
+
+
+        
         //textcolor.value = cellObject.tcolor;
         //backgroundcolor.value = cellObject.backgroundcolor;
         fontsize.value = cellObject.fontsize;
@@ -159,15 +168,23 @@ underline.addEventListener("click",function(){
     underlineclick = !underlineclick;
 })
 
-align.addEventListener("change",function(){
+align.addEventListener("click",function(e){
+    const alignitems = document.querySelectorAll(".text-alignment>*");
+    for(let i = 0; i < alignitems.length; i++){
+        alignitems[i].classList.remove("active-btn");
+        console.log("removed");
+    }
+    e.target.parentElement.classList.add("active-btn");
+    let value = e.target.classList[2];
     let idx = addressbar.value;
     let cell = document.querySelector(`.cbox[adrs=${idx}]`);
-    cell.style.textAlign = align.value;
+    cell.style.textAlign = value;
     let obj = getindices(idx);
-    sheetDB[obj.i][obj.j].align = align.value;
+    sheetDB[obj.i][obj.j].align = value;
 })
 
 fontsize.addEventListener("change",function(){
+    console.log("Hameed");
     let idx = addressbar.value;
     let cell = document.querySelector(`.cbox[adrs=${idx}]`);
     cell.style.fontSize = fontsize.value +"px";
@@ -175,7 +192,8 @@ fontsize.addEventListener("change",function(){
     sheetDB[obj.i][obj.j].fontsize = fontsize.value;
 })
 
-fontfamily.addEventListener("click",function(){
+fontfamily.addEventListener("change",function(){
+    console.log("fontfamily")
     let idx = addressbar.value;
     let cell = document.querySelector(`.cbox[adrs=${idx}]`);
     cell.style.fontFamily = fontfamily.value ;

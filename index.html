@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Excel</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -14,7 +14,8 @@
         <div class="title">
             <div class="New">New</div>
             <div class="Home">Home</div>
-            <div class="Open">Open</div>
+            <div class="Open">Open
+            </div>
             <div class="Save">Save</div>
         </div>
         <div class="alignment">
@@ -24,6 +25,8 @@
                 <option value="sans-serif">sans-serif</option>
                 <option value="fantasy">fantasy</option>
                 <option value="monospace">monospace</option>
+                <option value="cursive">cursive</option>
+                <option value="Lucida Sans">Lucida Sans</option>
             </select>
             <select class = "font-size">
                 <option value="8">8</option>
@@ -43,8 +46,20 @@
                     <i class = "fas fa-underline"></i>
                 </div>
             </div>
+            <div class="color">
+                <div class="textcolor">
+                    <input class = "text-color" type="color">
+                </div>
+                <div class="bgcolor">
+                    <input class = "bg-color" type="color">
+                </div>
+            </div>
             <div class="text-alignment">
-                <i class = "fas fa-left"></i>
+                <div class="left">
+                    <i class = "fas fa-align-left left"></i>
+                </div>
+                <div class="center"><i class = "fas fa-align-center center"></i></div>
+                <div class="right"><i class = "fas fa-align-right right"></i></div>
             </div>
         </div>
     </div>
