@@ -8,28 +8,72 @@ body{
 
 .menu-container{
     height:3rem ;
-    display: flex;
-    text-align : center;
-    gap: 1rem;
-    padding-left:1rem ;
-    padding-top: 0.8rem;
-    background-color: rgb(238, 238, 238)
+    
+    background-color: rgb(58, 175, 58)
 }
 
 .menu-container >*{
     width: 10rem;
-    height: 1.8rem;
+    padding-bottom: 0.3rem;
+    padding-left: 0.3rem;
     
 }
 
+.title{
+    display: flex;
+}
+.title>*{
+    width: 7rem;
+    margin-right: 0.8rem;
+}
+.Home{
+    /* background-color: #fff; */
+}
+select{
+    border: none;
+}
+select:focus{
+    outline:none;
+}
+
+select:hover{
+    background-color: #eee;
+    cursor: pointer;
+
+}
+.alignment{
+    display: flex;
+}
+
+.alignment>*{
+    margin-right: 1rem;
+}
 .biu-container{
-    border: 1px solid;
-    border-radius: 5%;
+    /* border: 1px solid; */
+    /* border-radius: 5%; */
     display: flex;
     justify-content: space-evenly;
     padding-top: 0.1rem;
-    color :rgb(106, 114, 122);
+    background-color: white;
+    /* color :rgb(106, 114, 122); */
     /* min-height: 1.8rem; */
+}
+.biu-container>*{
+    margin-right: 1rem;
+    font-size: x-small;
+    width: 16px;
+}
+.biu-container>*:hover{
+    background:lightgrey;
+}
+.fas.fa-bold{
+    font-size: 18px;
+}
+.fas.fa-italic{
+    font-size: 18px;
+}
+.fas.fa-underline{
+    font-size: 18px;
 }
 
 .formula-container{
@@ -74,7 +118,7 @@ body{
 .box{
     height: 1.2rem;
     width: 2rem;
-    border: 1px solid;
+    border: 1px solid lightgray;
     text-align: center;
     background-color: rgb(238, 238, 238)
 }
@@ -100,8 +144,12 @@ body{
     width: 4rem;
     height: 1.2rem;
     text-align: center;
-    border: 1px solid;
+    border: 1px solid lightgray;
     /* overflow: auto; */
+}
+
+.cbox:hover{
+    cursor: cell;
 }
 
 .grid{

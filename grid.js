@@ -13,7 +13,7 @@ const backgroundcolor = document.querySelector("input[name='Background']");
 
 //*************      *** Making Grid ************************* */
 let rows = 100;
-let cols = 65;
+let cols = 65;  
 
 for(let i = 0; i < rows; i++){
     let box = document.createElement("div");
