@@ -6,9 +6,9 @@ const grid = document.querySelector(".grid");
 const addressbar = document.querySelector(".address-input");
 const formulabar = document.querySelector(".formula-input");
 
-const bold = document.querySelector(".fa-bold");
-const italic = document.querySelector(".fas.fa-italic");
-const underline = document.querySelector(".fas.fa-underline");
+const bold = document.querySelector(".bold");
+const italic = document.querySelector(".italic");
+const underline = document.querySelector(".underline");
 
 const align = document.querySelector(".text-alignment");
 
@@ -83,9 +83,18 @@ function setUI(){
             let col = String.fromCharCode((j+65));
             let idx = col+row;
             // console.log(idx);
-            let elem = document.querySelector(`.cbox[adrs=${idx}]`);
-            let value = sheetDB[i][j].value;
-            elem.innerText = value;
+            let cell = document.querySelector(`.cbox[adrs=${idx}]`);
+            let cellData = sheetDB[i][j];
+            cell.style.fontWeight = cellData.bold;
+			cell.style.fontStyle =cellData.italic;
+			cell.style.textDecoration =cellData.underline;
+			cell.style.fontFamily = cellData.fontfamily;
+			cell.style.fontSize = cellData.fontsize + "px";
+			cell.style.textAlign = cellData.align;
+			cell.innerText = cellData.value;
+			cell.style.color = cellData.tColor;
+			cell.style.backgroundColor = cellData.backgroundcolor;
+
        }    
     }
           
@@ -115,7 +124,16 @@ function createSheet(){
        let col = String.fromCharCode(j);
        let idx = col + r;
        let elem = document.querySelector(`.cbox[adrs='${idx}']`);
-       elem.innerText = "";
+            elem.style.fontWeight = "normal";
+            elem.style.fontStyle = "normal";
+            elem.style.textDecoration = "none";
+            elem.style.fontFamily = "Arial";
+            elem.style.fontSize = "16px";
+            elem.style.textAlign = "center";
+            elem.style.color = "black";
+            elem.style.backgroundColor = "white";
+            elem.innerText = ""
+
        row.push(object);
         }
         newDB.push(row);

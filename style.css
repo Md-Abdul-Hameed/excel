@@ -52,10 +52,15 @@ select{
     border: none;
     width: 5rem;
 }
+select[name="font-size"]{
+    min-width: 5rem;
+}
 select:focus{
     outline:none;
 }
-
+.font-size{
+    width: 5rem;
+}
 select:hover{
     background-color: #eee;
     cursor: pointer;
@@ -82,8 +87,9 @@ option[value]{
     place-items: center;
     cursor: pointer;
 }
-.biu-container>*:hover{
-    background-color: lightgray;
+.biu-container *:hover{
+    color: green;
+    font-size: 24px;
 }
 .color{
     display: flex;
@@ -95,8 +101,9 @@ option[value]{
     place-items: center;
     cursor: pointer;
 }
-.text-color:hover,.bg-color:hover{
-    background-color: lightgray;
+.text-color>*:hover,.bg-color>*:hover{
+    color: green;
+    font-size: 24px;
 }
 
 .text-alignment{
@@ -116,15 +123,10 @@ option[value]{
     cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
+.text-alignment *:hover{
+    color: green;
+    font-size: 24px;
+}
 
 .formula-container{
     height:2rem;
@@ -218,10 +220,14 @@ option[value]{
     border: 1px solid lightgray;
     
 }
-
+[contenteditable]:focus {
+    outline: 0px solid transparent;
+    border: 2px solid green;
+}
 
 .cbox:hover{
     cursor: cell;
+    border: 0.5px solid green;
 }
 
 .grid{
@@ -283,7 +289,9 @@ option[value]{
 }
 
 .active-btn{
-    color: rgb(238, 151, 151);
+    /* color: rgb(238, 151, 151); */
+    background-color: rgb(157, 252, 157);
+    font-size: 30px;
 }
 
 .nos-container{
