@@ -1,7 +1,3 @@
-const addbtn = document.querySelector(".add-sheet_btn-container");
-const sheetlist = document.querySelector(".sheet-list");
-let sheetno = 1;
-
 //Adding sheets
 addbtn.addEventListener("click",function(){
     const sheets = document.querySelectorAll(".sheet");
@@ -15,20 +11,22 @@ addbtn.addEventListener("click",function(){
     })
     sheetlist.appendChild(elem);
     elem.classList.add("active");
-})
-
-// making sheets active on click
-sheetlist.addEventListener("click",function(e){
-    const sheets = document.querySelectorAll(".sheet");
-    if(e.target.className=="sheet"){
+    createSheet();
+    sheetDB = sheetarr[sheetno-1];
+    setUI();
+    elem.addEventListener("click",function(){
+        const sheets = document.querySelectorAll(".sheet");
+    
         sheets.forEach(function(sheet){
             sheet.classList.remove("active");          
         })
-        e.target.classList.add("active");
-    }
+        elem.classList.add("active");
+        let idx = elem.getAttribute("idx");
+        console.log(idx);
+        if(!sheetarr[idx-1]){
+            createSheet();
+        }
+        sheetDB = sheetarr[idx-1];
+        setUI();
+    })
 })
-
-// const fontFamily = document.querySelectorAll(".font-family>*");
-// for(let i = 0; i < fontFamily.length; i++){
-//     fontFamily[i].style.fontFamily = fontFamily[i].values;
-// }

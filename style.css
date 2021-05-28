@@ -6,10 +6,23 @@ body{
     margin: 0px;
 }
 
+.main{
+    display: flex;
+}
+.logo{
+    height: 3rem;
+    width: 3rem;
+}
+img{
+    margin: 0.4rem;
+    height: 2rem;
+    width:2rem;
+}
+
 .menu-container{
-    height:3rem ;
+    height:4rem ;
     
-    background-color: rgb(238, 238, 238);
+    background-color: white;
 }
 
 .menu-container >*{
@@ -23,25 +36,21 @@ body{
 
 .title{
     display: flex;
-    width: 100%;
+    width: calc(100vw - 3rem);
+    border-bottom: 1px solid;
 }
-.title *{
-    height: 100%;
-    width: 5rem;
-    font-family:'Courier New', Courier, monospace;
-}
-.New{
-    width: 5rem;
-}
-.Home{
-    background-color: #fff;
-    height: 100%;
-}
-.font-family{
-    margin-left: 1rem;
-}
+ .title *{
+    padding: 5px;
+    margin-right: 10px;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+} 
+
+
+
 select{
     border: none;
+    width: 5rem;
 }
 select:focus{
     outline:none;
@@ -58,76 +67,63 @@ option[value]{
 
 .alignment{
     display: flex;
-    width: 100%;
+    /* width: 100vw; */
     background-color: white;
-}
-
-.alignment>*{
-    width: 7rem;
-    margin-right: 1rem;
-    border-right: 1px solid;
 }
 .biu-container{
-    /* border: 1px solid; */
-    /* border-radius: 5%; */
     display: flex;
-    /* justify-content: space-evenly; */
     background-color: white;
-    /* text-align: center; */
-    
-    /* color :rgb(106, 114, 122); */
-    /* min-height: 1.8rem; */
+    /* padding: 5px; */
 }
 .biu-container>*{
-    margin-right: 1rem;
-    height: inherit;
-    font-size: x-small;
-    width: 20px;
-
+    width: 2rem;
+    padding: 4px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
 }
 .biu-container>*:hover{
-    background:lightgrey;
-}
-.fas.fa-bold{
-    font-size: 18px;
-    padding-top: 0.2rem;
-}
-.fas.fa-italic{
-    font-size: 18px;
-    padding-top: 0.2rem;
-}
-.fas.fa-underline{
-    font-size: 18px;
-    padding-top: 0.2rem;
-}
-.color{
-    width: 8.5rem;
-    gap: 2rem;
-}
-
-.color>*{
-    /* margin-right: 2rem; */
-    
-}
-
-.text-alignment{
-    display: flex;
-    background-color: white;
-    width: 7rem;
-}
-.text-alignment>*{
-    padding-top: 0.2rem;
-    width: 1.5rem;
-    text-align: center;
-    margin-right: 1rem;
-}
-.text-alignment>*:hover{
     background-color: lightgray;
 }
 .color{
     display: flex;
-    
 }
+.text-color,.bg-color{
+    width: 2.5rem;
+    padding: 4px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+.text-color:hover,.bg-color:hover{
+    background-color: lightgray;
+}
+
+.text-alignment{
+    display: flex;
+}
+
+.bor{
+    border-right: 1.2px solid lightgray;
+    background-color: rgb(255, 255, 255);
+}
+
+.text-alignment>*{
+    width:2rem;
+    padding: 4px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
 
 
 .formula-container{
@@ -146,6 +142,24 @@ option[value]{
 
 .address-input{
     width: 4rem;
+}
+
+.image{
+    height: 1rem;
+    width: 1rem;
+    margin-right: 0px;
+
+}
+
+.symbols{
+    display: flex;
+    background-color: white;
+    text-align: center;
+    margin-right: 0rem;
+}
+.symbols>*{
+    height: 1rem;
+    width: 1rem;
 }
 
 .formula-input{
@@ -172,7 +186,7 @@ option[value]{
 }
 
 .box{
-    height: 1.2rem;
+    height: 1.5rem;
     width: 2rem;
     border: 1px solid lightgray;
     text-align: center;
@@ -180,6 +194,7 @@ option[value]{
 }
 
 .left-box{
+    height: 1.5rem;
     background-color: rgb(238, 238, 238)
 }
 
@@ -188,7 +203,7 @@ option[value]{
 }
 
 .toprow{
-    height: 1.2rem;
+    height: 1.5rem;
     background-color: rgb(238, 238, 238);
     display: flex;
     position: absolute;
@@ -197,8 +212,8 @@ option[value]{
 }
 
 .cbox{
-    min-width: 4rem;
-    min-height: 1.2rem;
+    min-width: 5rem;
+    min-height: 1.5rem;
     text-align: center;
     border: 1px solid lightgray;
     
@@ -212,7 +227,7 @@ option[value]{
 .grid{
     
     position: absolute;
-    top: 1.2rem;
+    top: 1.5rem;
     left: 2rem;
 }
 
@@ -261,6 +276,7 @@ option[value]{
      padding-left: 0.3rem; 
     padding-top: 0.2rem; 
 }
+
 
 .active{
     background-color: white;

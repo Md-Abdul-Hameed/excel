@@ -1,19 +1,33 @@
 const leftcol = document.querySelector(".leftcol");
 const toprow = document.querySelector(".toprow");
+
 const grid = document.querySelector(".grid");
+
 const addressbar = document.querySelector(".address-input");
+const formulabar = document.querySelector(".formula-input");
+
 const bold = document.querySelector(".fa-bold");
 const italic = document.querySelector(".fas.fa-italic");
 const underline = document.querySelector(".fas.fa-underline");
+
 const align = document.querySelector(".text-alignment");
+
 const fontsize = document.querySelector(".font-size");
 const fontfamily = document.querySelector(".font-family");
+
 const textcolor = document.querySelector(".text-color");
 const backgroundcolor = document.querySelector(".bg-color");
 
-//*************      *** Making Grid ************************* */
+const addbtn = document.querySelector(".add-sheet_btn-container");
+
+const sheetlist = document.querySelector(".sheet-list");
+const firstsheet = document.querySelector(".sheet");
+let sheetno = 1;
 let rows = 100;
-let cols = 65;  
+let cols = 65; 
+
+//*************      *** Making Grid ************************* */
+ 
 
 for(let i = 0; i < rows; i++){
     let box = document.createElement("div");
@@ -43,28 +57,71 @@ for(let i = 0; i < rows; i++){
     grid.appendChild(row);   
 }
 
-let sheetDB = [];
 
-for(let i = 0; i < rows; i++){
-    let row = [];
-    for(let j = cols; j < cols+26; j++){
-   let object = {
-       bold:"normal",
-       italic:"normal",
-       align:"center",
-       tcolor:"black",
-       backgroundcolor:"white",
-       underline:"none",
-       fontsize:"16",
-       fontfamily:"Arial",
-       value:"",
-       formula:"",
-       children:[]
-   }    
-   row.push(object);
+
+let sheetDB=[];
+let sheetarr = [];
+
+firstsheet.addEventListener("click",function(){
+    const sheets = document.querySelectorAll(".sheet");
+    
+        sheets.forEach(function(sheet){
+            sheet.classList.remove("active");          
+        })
+        firstsheet.classList.add("active");
+        let idx = firstsheet.getAttribute("idx");
+        if(!sheetarr[idx]){
+            createSheet();
+        }
+        sheetDB = sheetarr[0];
+        setUI();
+})
+function setUI(){
+    for(let i = 0; i < rows; i++){
+        for(let j = 0; j < 26; j++){
+            let row = i+1;
+            let col = String.fromCharCode((j+65));
+            let idx = col+row;
+            // console.log(idx);
+            let elem = document.querySelector(`.cbox[adrs=${idx}]`);
+            let value = sheetDB[i][j].value;
+            elem.innerText = value;
+       }    
     }
-    sheetDB.push(row);
-      
+          
+}
+firstsheet.click();
+
+
+function createSheet(){
+    let newDB = [];
+    for(let i = 0; i < rows; i++){
+        let row = [];
+        for(let j = cols; j < cols+26; j++){
+       let object = {
+           bold:"normal",
+           italic:"normal",
+           align:"center",
+           tcolor:"black",
+           backgroundcolor:"white",
+           underline:"none",
+           fontsize:"16",
+           fontfamily:"Arial",
+           value:"",
+           formula:"",
+           children:[]
+       }    
+       let r = i+1;
+       let col = String.fromCharCode(j);
+       let idx = col + r;
+       let elem = document.querySelector(`.cbox[adrs='${idx}']`);
+       elem.innerText = "";
+       row.push(object);
+        }
+        newDB.push(row);
+          
+    }
+    sheetarr.push(newDB);
 }
 
 grid.addEventListener("click",function(e){
@@ -103,10 +160,12 @@ grid.addEventListener("click",function(e){
         //backgroundcolor.value = cellObject.backgroundcolor;
         fontsize.value = cellObject.fontsize;
         fontfamily.value = cellObject.fontfamily;
-
+        formulabar.value = cellObject.formula;
+        
     }
 })
 document.querySelector(".cbox[adrs='A1']").click();
+
 
 function getindices(atr){
     let r = atr.slice(1);
@@ -168,20 +227,24 @@ underline.addEventListener("click",function(){
     underlineclick = !underlineclick;
 })
 
-align.addEventListener("click",function(e){
-    const alignitems = document.querySelectorAll(".text-alignment>*");
-    for(let i = 0; i < alignitems.length; i++){
-        alignitems[i].classList.remove("active-btn");
-        console.log("removed");
-    }
-    e.target.parentElement.classList.add("active-btn");
-    let value = e.target.classList[2];
-    let idx = addressbar.value;
-    let cell = document.querySelector(`.cbox[adrs=${idx}]`);
-    cell.style.textAlign = value;
-    let obj = getindices(idx);
-    sheetDB[obj.i][obj.j].align = value;
-})
+const lrc = document.querySelectorAll(".text-alignment>*");
+for(let i = 0; i < lrc.length; i++){
+    lrc[i].addEventListener("click",function(){
+        for(let j = 0; j < lrc.length; j++){
+            lrc[j].classList.remove("active-btn");
+        }
+        lrc[i].classList.add("active-btn");
+        let value = lrc[i].classList[0];
+        let idx = addressbar.value;
+        let cell = document.querySelector(`.cbox[adrs=${idx}]`);
+        console.log(value);
+        cell.style.textAlign = value;
+        let obj = getindices(idx);
+        sheetDB[obj.i][obj.j].align = value;
+    })
+}    
+    
+
 
 fontsize.addEventListener("change",function(){
     console.log("Hameed");

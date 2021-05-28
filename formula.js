@@ -1,4 +1,3 @@
-const formulabar = document.querySelector(".formula-input");
 const allcells = document.querySelectorAll(".grid .cbox");
 
 for(let i = 0; i < allcells.length; i++){
@@ -8,6 +7,16 @@ for(let i = 0; i < allcells.length; i++){
         let idx = allcells[i].getAttribute("adrs");
         let obj = getindices(idx);
         let data = allcells[i].innerText;
+        
+        let address = addressbar.value;
+        if(sheetDB[obj.i][obj.j].value == data){
+            return;
+        }
+        if(sheetDB[obj.i][obj.j].formula){
+            removeFormula(sheetDB[obj.i][obj.j],address);
+            formulabar.value = "";
+            sheetDB[obj.i][obj.j].formula = "";
+        }
         sheetDB[obj.i][obj.j].value = data;
         updateChildren(sheetDB[obj.i][obj.j]);
     })
@@ -16,10 +25,16 @@ for(let i = 0; i < allcells.length; i++){
 formulabar.addEventListener("keydown",function(e){
     if(e.key == "Enter" && formulabar.value){
         let cFormula = formulabar.value;
-        let value = evaluateFormula(cFormula);
         let address = addressbar.value;
+        let obj = getindices(address);
+        let cellObject = sheetDB[obj.i][obj.j];
+        if(cFormula != cellObject.formula){
+            removeFormula(cellObject,address);
+        }
+        let value = evaluateFormula(cFormula);
         setcell(value,cFormula,address);
         setParenttoChildren(cFormula,address);
+        updateChildren(cellObject);
     }
 })
 
@@ -74,5 +89,19 @@ function updateChildren(cell){
         setcell(newvalue,chformula,idx);
         console.log(newvalue);     
         updateChildren(sheetDB[obj.i][obj.j]);  
+    }
+}
+
+function removeFormula(cellObject,myName){
+    let formula = cellObject.formula;
+    let formulatoken = formula.split(" ");
+    for(let i = 0; i < formulatoken.length; i++){
+        let ascii = formulatoken[i].charCodeAt(0);
+        if(ascii >= 65 && ascii <= 90){
+            let obj = getindices(formulatoken[i]);
+            let parentobj = sheetDB[obj.i][obj.j];
+            let idx = parentobj.children.indexOf(myName);
+            parentobj.children.splice(idx,1);
+        }
     }
 }
