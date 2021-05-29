@@ -44,13 +44,18 @@ img{
  .title *{
     padding: 5px;
     margin-right: 10px;
-
+    cursor: pointer;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 } 
 .title>*:hover{
     /* font-weight: 600; */
     background-color: lightgray;
     border-radius: 10%;
+    
+}
+
+.noclick{
+    
 }
 
 
@@ -127,7 +132,6 @@ option[value]{
     padding: 4px;
     display: grid;
     place-items: center;
-    cursor: pointer;
 }
 
 .text-alignment *:hover{

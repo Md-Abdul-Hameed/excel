@@ -16,8 +16,9 @@
         </div>
         <div class="menu-container">
             <div class="title">
-                <div class="New">New</div>
-                <div class="Open">Open
+                <input type="file"  class="open" style="display: none;">
+                <div class="New" >New</div>
+                <div class="openBtn" onclick="openFile()">Open
                 </div>
                 <div class="Save">Save</div>
             </div>
@@ -51,11 +52,11 @@
                 </div>
                 <div class="color bor">
                     <input type="color" id="font-color-btn" style="display: none;" class="text-color" title="Change Font Color">
-                        <label class="text-color" onclick="openTextColor()" id="hoverOnFontColorBtn" style="cursor: pointer" for="fontColorButton"  onclick=openFontColor()>
+                        <label class="text-color nc" onclick="openTextColor()" id="hoverOnFontColorBtn" style="cursor: pointer" for="fontColorButton"  onclick=openFontColor()>
                             <i class="fas fa-font"></i>
                         </label>
                         <input type="color" id="bg-color-btn" style="display: none;" class="bg-color" value="#ffffff" title="Change bg Color">
-                        <label class="bg-color" onclick="openBgColor()" id="hoverOnCellColorBtn" style="cursor: pointer" for="bgColorButton"  onclick=openBgColor()>
+                        <label class="bg-color nc" onclick="openBgColor()" id="hoverOnCellColorBtn" style="cursor: pointer" for="bgColorButton"  onclick=openBgColor()>
                             <i class="fas fa-fill-drip" ></i>
 
                 </div>
@@ -63,7 +64,7 @@
                     <div class="left">
                         <i class = "fas fa-align-left left"></i>
                     </div>
-                    <div class="center"><i class = "fas fa-align-center center"></i></div>
+                    <div class="center active-btn"><i class = "fas fa-align-center center"></i></div>
                     <div class="right"><i class = "fas fa-align-right right"></i></div>
                 </div>
             </div>
@@ -103,6 +104,8 @@
         }
         function openBgColor(){
             document.querySelector(".bg-color").click();
+        }function openFile(){
+            document.querySelector(".open").click();
         }
     </script>
     <script src = "grid.js"></script>
